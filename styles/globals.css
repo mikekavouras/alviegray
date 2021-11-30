@@ -32,14 +32,20 @@ code {
 }
 
 .title {
-  font-family: 'Londrina Solid', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 120px;
   color: white;
-  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); */
 }
 
 canvas {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+@media screen and (max: 600px) {
+  body { background: red; }
+  .title {
+    font-size: 60px;
+  }
 }

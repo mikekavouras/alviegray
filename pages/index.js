@@ -46,9 +46,10 @@ export default function Home() {
       { x: 0, y: 100 },
     ])
 
-    var stack = Composites.stack(50, 50, 10, 4, 80, 10, function(x, y) {
+    const addShape = (x, y) => {
       var color = Common.choose(['#f19648', '#f5d259', '#f55a3c', '#063e7b', '#ececd1']);
-      return Bodies.fromVertices(x, y, Common.choose([arrow, star, rectangle]), {
+      const shape = Common.choose([arrow, star, rectangle])
+      const body = Bodies.fromVertices(x, y, Common.choose([arrow, star, rectangle]), {
         restitution: 0.7,
         render: {
           fillStyle: color,
@@ -56,9 +57,15 @@ export default function Home() {
           lineWidth: 1
         }
       }, true);
-    });
-
-    Composite.add(world, stack)
+      Composite.add(world, body)
+    }
+    document.body.addEventListener('click', function(e) {
+      addShape(e.pageX, e.pageY)
+    }, false)
+    document.body.addEventListener('touchstart', function(e) {
+      const touch = e.touches[0]
+      addShape(touch.pageX, touch.pageY)
+    }, false)
 
     // Add walls
     Composite.add(world, [
@@ -98,7 +105,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" /> 
-        <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet" />
       </Head>
 
       <main>
