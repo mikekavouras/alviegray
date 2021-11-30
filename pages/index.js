@@ -106,6 +106,8 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" /> 
         <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet" />
+        <meta property="og:title" content="Alvie Gray" />
+        <meta property="og:image" content="/preview.jpeg" />
       </Head>
 
       <main>
