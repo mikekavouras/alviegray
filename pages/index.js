@@ -37,7 +37,7 @@ export default function Home() {
     const runner = Runner.create()
     Runner.run(runner, engine)
 
-    const arrow = Vertices.fromPath('40 0 40 20 100 20 100 80 40 80 40 100 0 50')
+    const triangle = Vertices.fromPath('30 0 60 60 0 60')
     const star = Vertices.fromPath('50 0 63 38 100 38 69 59 82 100 50 75 18 100 31 59 0 38 37 38')
     const rectangle = Vertices.create([
       { x: 0, y: 0 },
@@ -46,11 +46,15 @@ export default function Home() {
       { x: 0, y: 100 },
     ])
 
+
+    const colors = ['#5EE956', '#56A7E9', '#E256E9', '#E9565E', '#E9E256']
     const addShape = (x, y) => {
-      var color = Common.choose(['#f19648', '#f5d259', '#f55a3c', '#063e7b', '#ececd1']);
-      const shape = Common.choose([arrow, star, rectangle])
-      const body = Bodies.fromVertices(x, y, Common.choose([arrow, star, rectangle]), {
+      var color = Common.choose(colors);
+      const shape = Common.choose([triangle, star, rectangle])
+      const angle = shape === star ? 0 : Math.floor(Math.random() * 6)
+      const body = Bodies.fromVertices(x, y, shape, {
         restitution: 0.7,
+        angle: angle,
         render: {
           fillStyle: color,
           strokeStyle: color,
@@ -105,7 +109,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" /> 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" /> 
-        <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet" />
         <meta property="og:title" content="Alvie Gray" />
         <meta property="og:image" content="/preview.jpeg" />
       </Head>

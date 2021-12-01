@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-   background: rgb(76, 150, 216);
+   background: rgb(255, 251, 211);
 }
 
 * {
@@ -32,9 +32,9 @@ code {
 }
 
 .title {
-  font-family: 'Cabin Sketch', cursive;
+  font-family: 'Sigmar One', cursive;
   font-size: 120px;
-  color: white;
+  color: rgb(233, 153, 86);
 }
 
 canvas {
