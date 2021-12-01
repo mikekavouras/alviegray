@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-   background: rgb(255, 251, 211);
+  background: rgb(241, 239, 207)
 }
 
 * {
@@ -35,6 +35,7 @@ code {
   font-family: 'Sigmar One', cursive;
   font-size: 120px;
   color: rgb(233, 153, 86);
+  text-shadow: 8px 7px 0px rgba(115, 54, 115, 1);
 }
 
 canvas {

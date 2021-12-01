@@ -47,13 +47,13 @@ export default function Home() {
     ])
 
 
-    const colors = ['#5EE956', '#56A7E9', '#E256E9', '#E9565E', '#E9E256']
+    const colors = ['#56A7E9', '#E9565E', '#E9E256']
     const addShape = (x, y) => {
       var color = Common.choose(colors);
       const shape = Common.choose([triangle, star, rectangle])
       const angle = shape === star ? 0 : Math.floor(Math.random() * 6)
       const body = Bodies.fromVertices(x, y, shape, {
-        restitution: 0.7,
+        restitution: 0.6,
         angle: angle,
         render: {
           fillStyle: color,
@@ -74,9 +74,9 @@ export default function Home() {
     // Add walls
     Composite.add(world, [
       Bodies.rectangle(window.innerWidth / 2.0, 0, window.innerWidth, 10, { isStatic: true, render: { fillStyle: 'transparent' } }),
-      Bodies.rectangle(window.innerWidth / 2.0, window.innerHeight, window.innerWidth, 10, { isStatic: true, render: { fillStyle: 'transparent' } }),
-      Bodies.rectangle(0, window.innerHeight / 2.0, 50, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } }),
-      Bodies.rectangle(window.innerWidth, window.innerHeight / 2.0, 50, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } }),
+      Bodies.rectangle(window.innerWidth / 2.0, window.innerHeight + 5, window.innerWidth, 10, { isStatic: true, render: { fillStyle: 'transparent' } }),
+      Bodies.rectangle(-20, window.innerHeight / 2.0, 50, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } }),
+      Bodies.rectangle(window.innerWidth + 20, window.innerHeight / 2.0, 50, window.innerHeight, { isStatic: true, render: { fillStyle: 'transparent' } }),
     ])
 
     // add mouse control
@@ -100,6 +100,9 @@ export default function Home() {
       min: {x: 0, y: 0},
       max: {x: window.innerWidth, y: window.innerHeight},
     })
+
+    const image = new Image()
+    image.src = '/preview.jpeg'
   })
 
   return (
